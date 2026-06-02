@@ -2,7 +2,7 @@
 
 The objective is to build a statistically robust allocation strategy that maps financial signals into dynamic portfolio weights.
 
-For each asset, the model uses predictive signals such as:
+For each asset, the model uses predictive signals such as: 
 - momentum;
 - short-term mean reversion;
 - realized volatility;

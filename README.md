@@ -55,6 +55,7 @@ m_{2,t} = \mathbb{E}[\sigma_t^2+\mu_t^2 \mid \mathcal{D}_t]
 \approx \frac{1}{M} \sum_{m=1}^{M} \left[ \sigma^{2,(m)} + \left(\mu_t^{(m)}\right)^2 \right].
 ```
 
+
 ---
 
 ## Allocation Rule

@@ -44,13 +44,13 @@ This means the model increases exposure when the posterior expected return is la
 
 For predictors \(z_t\) and next-period return \(x_{t+1}\), the model is:
 
-$$
+```math
 x_{t+1}
 =
 \alpha + z_t^\top \beta + \varepsilon_{t+1},
 \qquad
 \varepsilon_{t+1} \sim \mathcal{N}(0,\sigma^2).
-$$
+```
 
 Instead of estimating only point coefficients, the model estimates the posterior distribution:
 

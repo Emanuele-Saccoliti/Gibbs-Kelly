@@ -77,10 +77,10 @@ where:
 
 - $m_{1,t}$ is the posterior expected return;
 - $m_{2,t}$ is the posterior predictive second moment;
-- $lambda$ is a fractional Kelly multiplier;
+- $\lambda$ is a fractional Kelly multiplier;
 - $w_{\max}$ is the maximum absolute leverage.
 
-This allocation rule increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high.
+This allocation rule increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high. The leverage constraint $w_{\max}$ prevents the strategy from taking unrealistically large positions.
 
 ---
 

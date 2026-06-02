@@ -27,7 +27,7 @@ The strategy uses these moments to generate dynamic fractional Kelly-style portf
 
 $$
 w_t =
-\operatorname{clip}
+\text{clip}
 \left(
 \lambda \frac{m_{1,t}}{m_{2,t}},
 -w_{\max},

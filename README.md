@@ -39,6 +39,16 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 
 Posterior samples are obtained using a custom Gibbs sampler.
 
+
+```math
+\varepsilon_{t+h}\mid \lambda_t,\sigma^2
+\sim
+\mathcal N
+\left(
+0,
+\frac{\sigma^2}{\lambda_t}
+\right),
+
 For posterior draw m, define the conditional expected return:
 ```math
 \mu_t^{(m)}=\alpha^{(m)}+z_t^\top\beta^{(m)}.

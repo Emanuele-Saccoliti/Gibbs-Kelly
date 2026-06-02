@@ -39,7 +39,8 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 
 <br>
 
-Posterior samples are obtained using a custom Gibbs sampler. To sample efficiently from the Student-t distribution, the Student-t likelihood could be expressed as a Normal distribution with a specific random variance for each observation. The error term can be written as
+Posterior samples are obtained using a custom Gibbs sampler. To sample efficiently from the Student-t distribution, the Student-t likelihood could be expressed as a Normal distribution with a specific random variance for each observation. 
+The error term can be written as
 
 ```math
 \varepsilon_{t+h}\mid \lambda_t,\sigma^2 \sim \mathcal N \left( 0, \frac{\sigma^2}{\lambda_t} \right).

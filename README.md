@@ -10,37 +10,11 @@ For each asset, the model uses predictive signals such as:
 - drawdown;
 - trend strength.
 
-The model estimates the relationship between these signals and future returns using Bayesian linear regression.
-Instead of producing only point estimates, it uses **Gibbs sampling** to generate posterior distributions of the predictive coefficients and residual return variance.
-
-These posterior samples are then converted into posterior predictive moments:
-
-$$
-m_{1,t} = \mathbb{E}[\mu_t \mid \mathcal{D}_t],
-\qquad
-m_{2,t} = \mathbb{E}[\sigma_t^2 + \mu_t^2 \mid \mathcal{D}_t].
-$$
-
-
-
-The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
-
-$$
-w_t =
-\text{clip}
-\left(
-\lambda \frac{m_{1,t}}{m_{2,t}},
--w_{\max},
-w_{\max}
-\right).
-$$
-
-This means the model increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high. The leverage constraint $w_{\max}$ prevents the strategy from taking unrealistically large positions.
 
 
 ---
 
----
+
 
 ## Model
 
@@ -57,9 +31,7 @@ x_{t+1}
 Instead of estimating only point coefficients, the model estimates the posterior distribution:
 
 ```math
-\[
 p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
-\]
 ```
 
 Posterior samples are obtained using a custom Gibbs sampler.
@@ -89,7 +61,7 @@ m_{2,t} = \mathbb{E}[\sigma_t^2+\mu_t^2 \mid \mathcal{D}_t]
 
 The strategy uses a fractional Kelly-style allocation rule:
 
-\[
+```math
 w_t
 =
 \operatorname{clip}
@@ -99,14 +71,14 @@ w_t
 -w_{\max},
 w_{\max}
 \right).
-\]
+```
 
 where:
 
-- \(m_{1,t}\) is the posterior expected return;
-- \(m_{2,t}\) is the posterior predictive second moment;
-- \(\lambda\) is a fractional Kelly multiplier;
-- \(w_{\max}\) is the maximum absolute leverage.
+- $m_{1,t}$ is the posterior expected return;
+- $m_{2,t}$ is the posterior predictive second moment;
+- $lambda$ is a fractional Kelly multiplier;
+- $w_{\max}$ is the maximum absolute leverage.
 
 This allocation rule increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high.
 

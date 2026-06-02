@@ -113,6 +113,7 @@ we obtain
 \mathbb{E} \left[ \left(R_{t+h}^{(m)}\right)^2 \right] = \sigma^{2,(m)} \frac{\nu}{\nu-2} + \left(\mu_t^{(m)}\right)^2.
 ```
 
+<br>
 
 Therefore, the posterior predictive second moment is:
 

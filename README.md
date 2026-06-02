@@ -49,6 +49,8 @@ Posterior samples are obtained using a custom Gibbs sampler. To sample efficient
 \right)
 ```
 
+<br>
+
 This representation allows the Gibbs sampler to treat the model as a (weighted) Gaussian regression conditional on $\lambda_t$, while still preserving the heavy-tailed behavior of the Student-t likelihood.
 
 

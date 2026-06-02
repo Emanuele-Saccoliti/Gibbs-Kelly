@@ -37,10 +37,8 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 
 <br>
 
-Posterior samples are obtained using a custom Gibbs sampler.
+Posterior samples are obtained using a custom Gibbs sampler. To sample efficiently from the Student-t distribution, the Student-t likelihood could be expressed as a Normal distribution with a specific random variance for each observation. The error term can be written as
 
-
-the model becomes a weighted Gaussian regression:
 ```math
 \varepsilon_{t+h}\mid \lambda_t,\sigma^2
 \sim
@@ -51,7 +49,13 @@ the model becomes a weighted Gaussian regression:
 \right)
 ```
 
-For posterior draw m, define the conditional expected return:
+This representation allows the Gibbs sampler to treat the model as a (weighted) Gaussian regression conditional on $\lambda_t$, while still preserving the heavy-tailed behavior of the Student-t likelihood.
+
+
+<br>
+
+
+For posterior draw $m$, define the conditional expected return:
 ```math
 \mu_t^{(m)}=\alpha^{(m)}+z_t^\top\beta^{(m)}.
 ```

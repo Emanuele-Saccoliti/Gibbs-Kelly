@@ -21,6 +21,7 @@ m_{2,t} = \mathbb{E}[\sigma_t^2 + \mu_t^2 \mid \mathcal{D}_t].
 $$
 
 
+
 The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
 $$
 w_t =

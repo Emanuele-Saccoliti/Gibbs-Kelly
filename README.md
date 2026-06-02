@@ -21,11 +21,11 @@ For each asset, the model uses predictive signals such as:
 For predictors $z_t$ and next-period return $x_{t+1}$, the model is:
 
 ```math
-x_{t+1}
+x_{t+h}
 =
-\alpha + z_t^\top \beta + \varepsilon_{t+1},
+\alpha + z_t^\top \beta + \varepsilon_{t+h},
 \qquad
-\varepsilon_{t+1} \sim \mathcal{N}(0,\sigma^2).
+\varepsilon_{t+h}\sim t_\nu(0,\sigma^2).
 ```
 
 Instead of estimating only point coefficients, the model estimates the posterior distribution:
@@ -36,23 +36,38 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 
 Posterior samples are obtained using a custom Gibbs sampler.
 
-For posterior draw $m$:
+Define the posterior draw $m$ as:
 
 ```math
-\mu_t^{(m)} = \alpha^{(m)} + z_t^\top\beta^{(m)}.
+\mu_t^{(m)}=\alpha^{(m)}+z_t^\top\beta^{(m)}.
 ```
 
 The posterior expected return is:
 
 ```math
-m_{1,t} = \mathbb{E}[\mu_t \mid \mathcal{D}_t] \approx \frac{1}{M} \sum_{m=1}^{M} \mu_t^{(m)}.
+m_{1,t}
+=
+\mathbb E[\mu_t\mid\mathcal D_t]
+\approx
+\frac{1}{M}
+\sum_{m=1}^{M}
+\mu_t^{(m)}.
 ```
+
+For a Student-$t$ distribution with $\nu>2$,
+
+```math
+\text{Var}(\varepsilon)
+=
+\sigma^2\frac{\nu}{\nu-2}.
+```
+
 
 The posterior predictive second moment is:
 
 ```math
-m_{2,t} = \mathbb{E}[\sigma_t^2+\mu_t^2 \mid \mathcal{D}_t]
-\approx \frac{1}{M} \sum_{m=1}^{M} \left[ \sigma^{2,(m)} + \left(\mu_t^{(m)}\right)^2 \right].
+m_{2,t} = \mathbb E \left[ \sigma_t^2\frac{\nu}{\nu-2} + \mu_t^2 \mid \mathcal D_t \right]
+\approx \frac{1}{M} \sum_{m=1}^{M} \left[ \sigma^{2,(m)} \frac{\nu}{\nu-2} + \left(\mu_t^{(m)}\right)^2 \right].
 ```
 
 

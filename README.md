@@ -18,7 +18,7 @@ For each asset, the model uses predictive signals such as:
 
 ## Model
 
-For predictors $z_t$ and next-period return $x_{t+1}$, the model is:
+For predictors $z_t$ observed at time $t$, the model forecasts the $h$-period forward return $x_{t+h}$:
 
 ```math
 x_{t+h}
@@ -28,6 +28,7 @@ x_{t+h}
 \varepsilon_{t+h}\sim t_\nu(0,\sigma^2).
 ```
 
+The Student-t likelihood is used instead of a Gaussian likelihood to make the model more robust to heavy-tailed financial returns.
 Instead of estimating only point coefficients, the model estimates the posterior distribution:
 
 ```math
@@ -38,8 +39,7 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 
 Posterior samples are obtained using a custom Gibbs sampler.
 
-Define the posterior draw $m$ as:
-
+For posterior draw m, define the conditional expected return:
 ```math
 \mu_t^{(m)}=\alpha^{(m)}+z_t^\top\beta^{(m)}.
 ```
@@ -47,13 +47,7 @@ Define the posterior draw $m$ as:
 The posterior expected return is:
 
 ```math
-m_{1,t}
-=
-\mathbb E[\mu_t\mid\mathcal D_t]
-\approx
-\frac{1}{M}
-\sum_{m=1}^{M}
-\mu_t^{(m)}.
+m_{1,t}=\mathbb E[\mu_t\mid\mathcal D_t] \approx \frac{1}{M} \sum_{m=1}^{M} \mu_t^{(m)}.
 ```
 
 For a Student-t distribution with $\nu>2$,
@@ -65,7 +59,7 @@ For a Student-t distribution with $\nu>2$,
 ```
 
 
-The posterior predictive second moment is:
+Therefore, the posterior predictive second moment is:
 
 ```math
 m_{2,t} = \mathbb E \left[ \sigma_t^2\frac{\nu}{\nu-2} + \mu_t^2 \mid \mathcal D_t \right]

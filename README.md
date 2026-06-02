@@ -141,6 +141,16 @@ w_{\max}
 \right).
 ```
 
+or in other words
+```math
+w_t =  
+\begin{cases}  
+-w_{\max}, & \lambda \frac{m_{1,t}}{m_{2,t}} < -w_{\max} \\[4pt]  
+\lambda \frac{m_{1,t}}{m_{2,t}}, & -w_{\max}\leq \lambda \frac{m_{1,t}}{m_{2,t}}\leq w_{\max} \\[4pt]  
++w_{\max}, & \lambda \frac{m_{1,t}}{m_{2,t}} > w_{\max}.  
+\end{cases}
+```
+
 where:
 
 - $m_{1,t}$ is the posterior expected return;

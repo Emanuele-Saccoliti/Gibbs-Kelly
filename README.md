@@ -64,7 +64,7 @@ For any random variable $R$, the second moment can be decomposed as
 \mathbb{E}[R^2] = \text{Var}(R) + \left(\mathbb{E}[R]\right)^2.
 ```
 
-In our case, for posterior draw $m$,
+In our case, for posterior draw $m$ we have
 
 ```math
 R_{t+h}^{(m)} = \mu_t^{(m)} + \varepsilon_{t+h}^{(m)}.

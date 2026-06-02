@@ -14,6 +14,7 @@ The model estimates the relationship between these signals and future returns us
 Instead of producing only point estimates, it uses **Gibbs sampling** to generate posterior distributions of the predictive coefficients and residual return variance.
 
 These posterior samples are then converted into posterior predictive moments:
+
 $$
 m_{1,t} = \mathbb{E}[\mu_t \mid \mathcal{D}_t],
 \qquad
@@ -23,6 +24,7 @@ $$
 
 
 The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
+
 $$
 w_t =
 \operatorname{clip}

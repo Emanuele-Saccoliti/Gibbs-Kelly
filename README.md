@@ -15,11 +15,11 @@ Instead of producing only point estimates, it uses **Gibbs sampling** to generat
 
 These posterior samples are then converted into posterior predictive moments:
 
-\[
+$$
 m_{1,t} = \mathbb{E}[\mu_t \mid \mathcal{D}_t],
 \qquad
-m_{2,t} = \mathbb{E}[\sigma_t^2+\mu_t^2 \mid \mathcal{D}_t].
-\]
+m_{2,t} = \mathbb{E}[\sigma_t^2 + \mu_t^2 \mid \mathcal{D}_t].
+$$
 
 The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
 

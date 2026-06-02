@@ -53,9 +53,43 @@ m_{1,t}=\mathbb E[\mu_t\mid\mathcal D_t] \approx \frac{1}{M} \sum_{m=1}^{M} \mu_
 For a Student-t distribution with $\nu>2$,
 
 ```math
-\text{Var}(\varepsilon)
-=
-\sigma^2\frac{\nu}{\nu-2}.
+\text{Var}(\varepsilon) = \sigma^2\frac{\nu}{\nu-2}.
+```
+
+For any random variable $R$, the second moment can be decomposed as
+
+```math
+\mathbb{E}[R^2] = \operatorname{Var}(R) + \left(\mathbb{E}[R]\right)^2.
+```
+
+In our case, for posterior draw $M$,
+
+```math
+R_{t+h}^{(m)} = \mu_t^{(m)} + \varepsilon_{t+h}^{(m)}.
+```
+
+Therefore,
+
+```math
+\mathbb{E}\left[R_{t+h}^{(m)}\right] = \mu_t^{(m)}.
+```
+
+Since
+
+```math
+\varepsilon_{t+h}^{(m)} \sim t_\nu(0,\sigma^{2,(m)}),
+```
+
+and for $\nu>2$,
+
+```math
+\text{Var} \left(\varepsilon_{t+h}^{(m)} \right)= \sigma^{2,(m)} \frac{\nu}{\nu-2},
+```
+
+we obtain
+
+```math
+\mathbb{E} \left[ \left(R_{t+h}^{(m)}\right)^2 \right] = \sigma^{2,(m)} \frac{\nu}{\nu-2} + \left(\mu_t^{(m)}\right)^2.
 ```
 
 

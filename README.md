@@ -28,6 +28,8 @@ x_{t+h}
 \varepsilon_{t+h}\sim t_\nu(0,\sigma^2).
 ```
 
+<br>
+
 The Student-t likelihood is used instead of a Gaussian likelihood to make the model more robust to heavy-tailed financial returns.
 Instead of estimating only point coefficients, the model estimates the posterior distribution:
 
@@ -53,6 +55,9 @@ Posterior samples are obtained using a custom Gibbs sampler. To sample efficient
 
 This representation allows the Gibbs sampler to treat the model as a (weighted) Gaussian regression conditional on $\lambda_t$, while still preserving the heavy-tailed behavior of the Student-t likelihood.
 
+```math
+x_{t+h} \mid \lambda_t, \alpha, \beta, \sigma^2 \sim \mathcal{N} \left( \alpha + z_t^\top \beta, \frac{\sigma^2}{\lambda_t} \right).
+```
 
 <br>
 

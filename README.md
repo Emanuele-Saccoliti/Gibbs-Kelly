@@ -56,13 +56,15 @@ For a Student-t distribution with $\nu>2$,
 \text{Var}(\varepsilon) = \sigma^2\frac{\nu}{\nu-2}.
 ```
 
+<br>
+
 For any random variable $R$, the second moment can be decomposed as
 
 ```math
 \mathbb{E}[R^2] = \text{Var}(R) + \left(\mathbb{E}[R]\right)^2.
 ```
 
-In our case, for posterior draw $M$,
+In our case, for posterior draw $m$,
 
 ```math
 R_{t+h}^{(m)} = \mu_t^{(m)} + \varepsilon_{t+h}^{(m)}.

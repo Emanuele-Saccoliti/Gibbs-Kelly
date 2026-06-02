@@ -64,7 +64,7 @@ The strategy uses a fractional Kelly-style allocation rule:
 ```math
 w_t
 =
-\operatorname{clip}
+\text{clip}
 \left(
 \lambda
 \frac{m_{1,t}}{m_{2,t}},

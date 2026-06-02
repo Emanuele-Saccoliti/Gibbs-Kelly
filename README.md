@@ -40,6 +40,7 @@ p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 Posterior samples are obtained using a custom Gibbs sampler.
 
 
+the model becomes a weighted Gaussian regression:
 ```math
 \varepsilon_{t+h}\mid \lambda_t,\sigma^2
 \sim
@@ -47,7 +48,8 @@ Posterior samples are obtained using a custom Gibbs sampler.
 \left(
 0,
 \frac{\sigma^2}{\lambda_t}
-\right),
+\right)
+```
 
 For posterior draw m, define the conditional expected return:
 ```math

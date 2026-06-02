@@ -56,7 +56,7 @@ m_{1,t}
 \mu_t^{(m)}.
 ```
 
-For a Student-$t$ distribution with $\nu>2$,
+For a Student-t distribution with $\nu>2$,
 
 ```math
 \text{Var}(\varepsilon)

@@ -34,6 +34,8 @@ Instead of estimating only point coefficients, the model estimates the posterior
 p(\alpha,\beta,\sigma^2 \mid \mathcal{D}_t).
 ```
 
+<br>
+
 Posterior samples are obtained using a custom Gibbs sampler.
 
 Define the posterior draw $m$ as:

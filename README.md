@@ -4,7 +4,7 @@ The objective is to build a statistically robust allocation strategy that maps f
 
 For each asset, the model uses predictive signals such as:
 - momentum;
-- short-term reversal;
+- short-term mean reversion;
 - realized volatility;
 - volatility ratio;
 - drawdown;

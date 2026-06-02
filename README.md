@@ -14,16 +14,15 @@ The model estimates the relationship between these signals and future returns us
 Instead of producing only point estimates, it uses **Gibbs sampling** to generate posterior distributions of the predictive coefficients and residual return variance.
 
 These posterior samples are then converted into posterior predictive moments:
-
 $$
 m_{1,t} = \mathbb{E}[\mu_t \mid \mathcal{D}_t],
 \qquad
 m_{2,t} = \mathbb{E}[\sigma_t^2 + \mu_t^2 \mid \mathcal{D}_t].
 $$
 
-The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
 
-\[
+The strategy uses these moments to generate dynamic fractional Kelly-style portfolio weights:
+$$
 w_t =
 \operatorname{clip}
 \left(
@@ -31,9 +30,9 @@ w_t =
 -w_{\max},
 w_{\max}
 \right).
-\]
+$$
 
-This means the model increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high. The leverage constraint \(w_{\max}\) prevents the strategy from taking unrealistically large positions.
+This means the model increases exposure when the posterior expected return is large relative to predictive risk, and reduces exposure when uncertainty or volatility is high. The leverage constraint $w_{\max}$ prevents the strategy from taking unrealistically large positions.
 
 ---
 

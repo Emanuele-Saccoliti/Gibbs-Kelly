@@ -59,7 +59,7 @@ For a Student-t distribution with $\nu>2$,
 For any random variable $R$, the second moment can be decomposed as
 
 ```math
-\mathbb{E}[R^2] = \operatorname{Var}(R) + \left(\mathbb{E}[R]\right)^2.
+\mathbb{E}[R^2] = \text{Var}(R) + \left(\mathbb{E}[R]\right)^2.
 ```
 
 In our case, for posterior draw $M$,

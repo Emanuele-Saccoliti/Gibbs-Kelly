@@ -169,11 +169,11 @@ The strategy achieved:
 
 | Metric | Value |
 |---|---:|
-| Bootstrap mean Sharpe | ~0.81 |
-| Bootstrap median Sharpe | ~0.81 |
-| 5% bootstrap Sharpe | ~0.42 |
-| 95% bootstrap Sharpe | ~1.21 |
-| Probability of negative Sharpe | ~0.0% |
+| Bootstrap mean Sharpe | ~0.86 |
+| Bootstrap median Sharpe | ~0.85 |
+| 5% bootstrap Sharpe | ~0.47 |
+| 95% bootstrap Sharpe | ~1.24 |
+| Probability of negative Sharpe | ~0.05% |
 
 These results suggest that the strategy produced a positive and statistically robust out-of-sample Sharpe under block-bootstrap resampling.
 

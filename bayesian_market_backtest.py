@@ -23,8 +23,8 @@ FEATURE_COLUMNS = [
 ]
 
 
-MARKET_MIN_N_SAMPLES = 3000
-MARKET_MIN_BURN_IN = 1000
+MARKET_MIN_N_SAMPLES = 2000
+MARKET_MIN_BURN_IN = 500
 ALLOWED_TARGET_HORIZONS = (5, 20)
 
 
@@ -76,8 +76,8 @@ class BayesianMultiSignalModel(object):
 		self,
 		max_w=1.0,
 		kelly_fraction=0.25,
-		n_samples=3000,
-		burn_in=1000,
+		n_samples=2000,
+		burn_in=500,
 			theta_prior_scale=10.0,
 			a0=2.0,
 			b0=1e-4,
@@ -525,16 +525,20 @@ class MarketBacktestConfig:
 	tickers: tuple = (
 		'SPY',
 		'QQQ',
+		'EFA',
+		'XLK',
+		'XLU',
 		'TLT',
 		'GLD',
+		'DBC',
 		'HYG',
 		'BTC-USD',
 	)
 	start_date: str = '2015-01-01'
 	end_date: str = None
 	target_horizon: int = 5
-	n_samples: int = 3000
-	burn_in: int = 1000
+	n_samples: int = 2000
+	burn_in: int = 500
 	theta_prior_scale: float = 10.0
 	a0: float = 2.0
 	b0: float = 1e-4
@@ -557,8 +561,8 @@ def quick_market_config():
 	return MarketBacktestConfig(
 		tickers=('SPY', 'QQQ'),
 		start_date='2022-01-01',
-		n_samples=3000,
-		burn_in=1000,
+		n_samples=2000,
+		burn_in=500,
 		min_train_size=250,
 		test_size=125,
 		n_boot=300,
@@ -569,8 +573,8 @@ def quick_market_config():
 def full_market_config():
 	return MarketBacktestConfig(
 		start_date='2010-01-01',
-		n_samples=3000,
-		burn_in=1000,
+		n_samples=2000,
+		burn_in=500,
 		n_boot=5000,
 		results_dir='results_market_full',
 	)
